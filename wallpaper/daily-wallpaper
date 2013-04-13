@@ -1,0 +1,14 @@
+#!/bin/sh
+url=$(curl -s wanghui.cloudfoundry.com/wallpaper.do)
+folder=$HOME/Pictures/Wallpaper
+if [ ! -d $folder ]; then
+  mkdir $folder
+fi
+filename=`echo $url|grep -o [^/]*\.jpg`
+if [ ! -f "$folder/$filename" ]; then
+  echo "saving $filename to $folder/"
+  wget -q -P $folder $url
+fi
+gsettings set org.gnome.desktop.background picture-uri file://$folder/$filename
+gsettings set org.gnome.desktop.background picture-options 'centered'
+

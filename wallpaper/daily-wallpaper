@@ -4,7 +4,7 @@ folder=$HOME/Pictures/Wallpaper
 if [ ! -d $folder ]; then
   mkdir $folder
 fi
-filename=`echo $url|grep -o [^/]*\.jpg`
+filename=`echo $url|grep -oE "[^/]*\.(jpg|jpeg|png)"`
 if [ ! -f "$folder/$filename" ]; then
   echo "saving $filename to $folder/"
   wget -q -P $folder $url

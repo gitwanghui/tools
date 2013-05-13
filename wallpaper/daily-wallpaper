@@ -2,7 +2,7 @@
 url=$(curl -s wanghui.cloudfoundry.com/wallpaper.do)
 folder=$HOME/Pictures/Wallpaper
 if [ ! -d $folder ]; then
-  mkdir $folder
+  mkdir -p $folder
 fi
 filename=`echo $url|grep -oE "[^/]*\.(jpg|jpeg|png)"`
 if [ ! -f "$folder/$filename" ]; then

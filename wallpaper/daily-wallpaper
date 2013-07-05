@@ -1,5 +1,5 @@
 #!/bin/sh
-url=$(curl -s wanghui.cloudfoundry.com/wallpaper.do)
+url=$(curl -s wanghui.cfapps.io/wallpaper.do)
 folder=$HOME/Pictures/Wallpaper
 if [ ! -d $folder ]; then
   mkdir -p $folder
